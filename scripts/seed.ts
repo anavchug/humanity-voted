@@ -30,6 +30,27 @@ function loadEnvFiles() {
   }
 }
 
+function validateDatabaseUrl(databaseUrl: string) {
+  try {
+    new URL(databaseUrl);
+  } catch {
+    throw new Error(
+      [
+        "DATABASE_URL is not a valid URL.",
+        "",
+        "Check D:\\humanity-voted\\.env for these common Supabase connection string issues:",
+        "- Keep the value on one line.",
+        "- Wrap the whole value in double quotes.",
+        "- Replace [YOUR-PASSWORD] or PASSWORD with your actual database password.",
+        "- URL-encode special characters in the password. For example, @ becomes %40 and # becomes %23.",
+        "",
+        "Example:",
+        'DATABASE_URL="postgresql://postgres.PROJECT_REF:my%40password@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require"'
+      ].join("\n")
+    );
+  }
+}
+
 async function main() {
   loadEnvFiles();
 
@@ -38,6 +59,8 @@ async function main() {
   if (!databaseUrl) {
     throw new Error("DATABASE_URL is required to seed the database.");
   }
+
+  validateDatabaseUrl(databaseUrl);
 
   const sql = postgres(databaseUrl, {
     max: 1,
