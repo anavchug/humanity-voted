@@ -1,6 +1,38 @@
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import postgres from "postgres";
 
+function loadEnvFiles() {
+  const fileValues = new Map<string, string>();
+
+  for (const fileName of [".env", ".env.local"]) {
+    const filePath = resolve(process.cwd(), fileName);
+
+    if (!existsSync(filePath)) {
+      continue;
+    }
+
+    for (const line of readFileSync(filePath, "utf8").split(/\r?\n/)) {
+      const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+
+      if (!match || match[0].trim().startsWith("#")) {
+        continue;
+      }
+
+      const [, key, rawValue] = match;
+      const value = rawValue.trim().replace(/^(['"])(.*)\1$/, "$2");
+      fileValues.set(key, value);
+    }
+  }
+
+  for (const [key, value] of fileValues) {
+    process.env[key] ??= value;
+  }
+}
+
 async function main() {
+  loadEnvFiles();
+
   const databaseUrl = process.env.DATABASE_URL;
 
   if (!databaseUrl) {
