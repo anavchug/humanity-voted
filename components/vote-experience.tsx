@@ -165,6 +165,11 @@ export function VoteExperience() {
           </div>
         </div>
 
+        <aside className={`tomorrow-card ${hasVoted ? "is-open" : ""}`} aria-live="polite">
+          <span>Next question drops tomorrow</span>
+          <strong>Come back and see where humanity lands.</strong>
+        </aside>
+
         {question.demoMode ? (
           <p className="demo-note">
             Demo data is active. Add `DATABASE_URL` and run `npm run db:seed` to use Supabase Postgres.

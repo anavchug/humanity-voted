@@ -280,6 +280,40 @@ h1 {
   transform: translateY(0);
 }
 
+.tomorrow-card {
+  grid-column: 2;
+  display: grid;
+  gap: 6px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: rgba(255, 250, 240, 0.66);
+  box-shadow: 0 16px 42px rgba(44, 36, 22, 0.08);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 420ms ease 100ms,
+    transform 420ms ease 100ms;
+}
+
+.tomorrow-card.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tomorrow-card span {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.tomorrow-card strong {
+  font-size: clamp(20px, 2.5vw, 30px);
+  line-height: 1.05;
+}
+
 .reveal > div:first-child {
   display: flex;
   justify-content: space-between;
@@ -408,6 +442,7 @@ h1 {
   }
 
   .reveal,
+  .tomorrow-card,
   .demo-note {
     grid-column: 1;
   }
