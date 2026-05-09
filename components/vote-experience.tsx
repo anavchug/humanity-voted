@@ -88,11 +88,11 @@ export function VoteExperience() {
   }
 
   async function share() {
-    const shareText = `Today's Split: ${question.prompt}`;
+    const shareText = `Today's Humanity Voted: ${question.prompt}`;
 
     if (navigator.share) {
       await navigator.share({
-        title: "Split",
+        title: "Humanity Voted",
         text: shareText,
         url: window.location.href
       });
@@ -109,7 +109,7 @@ export function VoteExperience() {
       <nav className="topbar">
         <Link className="brand" href="/">
           <span className="brand-mark">S</span>
-          <span>Split</span>
+          <span>Humanity Voted</span>
         </Link>
         <div className="nav-actions">
           <Link className="nav-pill" href="/archive">
@@ -156,7 +156,7 @@ export function VoteExperience() {
 
         <div className={`reveal ${hasVoted ? "is-open" : ""}`}>
           <div>
-            <span className="result-label">Global split</span>
+            <span className="result-label">Global vote</span>
             <strong>{totalVotes.toLocaleString()} votes</strong>
           </div>
           <div className="result-bar" aria-label={`${optionAPercent}% to ${optionBPercent}%`}>

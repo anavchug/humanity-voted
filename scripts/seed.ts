@@ -62,4 +62,4 @@ await sql`
 
 await sql.end();
 
-console.log("Split database seeded.");
+console.log("Humanity Voted database seeded.");

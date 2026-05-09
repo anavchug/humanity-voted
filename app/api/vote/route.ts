@@ -17,11 +17,11 @@ export async function POST(request: Request) {
   }
 
   const cookieStore = await cookies();
-  let visitorId = cookieStore.get("split_visitor")?.value;
+  let visitorId = cookieStore.get("humanity_voted_visitor")?.value;
 
   if (!visitorId) {
     visitorId = crypto.randomUUID();
-    cookieStore.set("split_visitor", visitorId, {
+    cookieStore.set("humanity_voted_visitor", visitorId, {
       httpOnly: true,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",

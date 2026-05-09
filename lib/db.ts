@@ -1,7 +1,7 @@
 import postgres from "postgres";
 
 declare global {
-  var splitSql: ReturnType<typeof postgres> | undefined;
+  var humanityVotedSql: ReturnType<typeof postgres> | undefined;
 }
 
 export const hasDatabase = Boolean(process.env.DATABASE_URL);
@@ -11,12 +11,12 @@ export function getSql() {
     return null;
   }
 
-  if (!globalThis.splitSql) {
-    globalThis.splitSql = postgres(process.env.DATABASE_URL, {
+  if (!globalThis.humanityVotedSql) {
+    globalThis.humanityVotedSql = postgres(process.env.DATABASE_URL, {
       max: 3,
       ssl: "require"
     });
   }
 
-  return globalThis.splitSql;
+  return globalThis.humanityVotedSql;
 }

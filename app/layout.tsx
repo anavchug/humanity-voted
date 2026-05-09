@@ -3,10 +3,10 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Split",
+  title: "Humanity Voted",
   description: "One daily question. Two buttons. See how the world voted.",
   openGraph: {
-    title: "Split",
+    title: "Humanity Voted",
     description: "Vote on today's would-you-rather question.",
     type: "website"
   }

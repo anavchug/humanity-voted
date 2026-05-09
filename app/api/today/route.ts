@@ -8,7 +8,7 @@ export async function GET(request: Request) {
     .get("cookie")
     ?.split(";")
     .map((part) => part.trim())
-    .find((part) => part.startsWith("split_visitor="))
+    .find((part) => part.startsWith("humanity_voted_visitor="))
     ?.split("=")[1];
 
   const question = await getTodayQuestion(visitorId);

@@ -1,4 +1,4 @@
-# Split
+# Humanity Voted
 
 One daily "Would You Rather?" question. Two buttons. Instant global results.
 
@@ -30,3 +30,4 @@ The app includes a demo fallback when `DATABASE_URL` is missing, so you can run 
 ## Product scope
 
 Version one intentionally avoids accounts, demographic questions, comments, and feeds. The whole experience is one daily question, anonymous voting, results, sharing, and an archive.
+
