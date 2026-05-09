@@ -356,7 +356,12 @@ h1 {
   grid-column: 2;
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  border: 1px solid rgba(17, 17, 15, 0.1);
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: rgba(255, 250, 240, 0.52);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .archive-hero {

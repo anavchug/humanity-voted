@@ -172,7 +172,7 @@ export function VoteExperience() {
 
         {question.demoMode ? (
           <p className="demo-note">
-            Demo data is active. Add `DATABASE_URL` and run `npm run db:seed` to use Supabase Postgres.
+            Preview mode is using sample votes. Connect Supabase to make results live.
           </p>
         ) : null}
       </section>
