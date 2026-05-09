@@ -19,11 +19,11 @@ export default async function ArchivePage() {
       </nav>
 
       <section className="archive-hero">
-        <p className="eyebrow">Archive</p>
+        <p className="eyebrow">Past Questions</p>
         <h1>Past questions, preserved for later arguments.</h1>
       </section>
 
-      <section className="archive-list" aria-label="Question archive">
+      <section className="archive-list" aria-label="Past questions">
         {questions.map((question) => {
           const total = question.optionAVotes + question.optionBVotes;
           const aPercent =

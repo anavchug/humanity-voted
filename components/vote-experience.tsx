@@ -113,7 +113,7 @@ export function VoteExperience() {
         </Link>
         <div className="nav-actions">
           <Link className="nav-pill" href="/archive">
-            Archive
+            Past Questions
           </Link>
           <button className="nav-pill" type="button" onClick={share}>
             {copied ? "Copied" : "Share"}
