@@ -14,6 +14,7 @@ export function getSql() {
   if (!globalThis.humanityVotedSql) {
     globalThis.humanityVotedSql = postgres(process.env.DATABASE_URL, {
       max: 3,
+      prepare: false,
       ssl: "require"
     });
   }
